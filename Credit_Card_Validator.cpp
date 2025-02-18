@@ -23,23 +23,35 @@ int sumEvenDigits(const string cardNumber);
 
 int main()
 {
+    string cardNumber;
+    int result = 0;
 
+    cout << "Enter a credit card number: " << endl;
+    cin >> cardNumber;
 
+    result = sumEvenDigits(cardNumber) + sumOddDigits(cardNumber);
 
-    return;
+    return 0;
 }
 
 int getDigit(const int number)
 {
-
+    return 0;
 }
 
 int sumOddDigits(const string cardNumber)
 {
-
+    return 0;
 }
 
 int sumEvenDigits(const string cardNumber)
 {
-    
+    int sum = 0; // Stores the total sum of processed even-indexed digits
+
+    for(int i = cardNumber.size() - 2; i >= 0; i-=2) // Loop through every second digit from the right (starting at the second-to-last)
+    {
+        sum += getDigit((cardNumber[i] - '0') * 2); // Convert char to int, double it, and pass to getDigit to handle two-digit numbers
+    }
+
+    return sum;  // Return the total sum of processed digits
 }
