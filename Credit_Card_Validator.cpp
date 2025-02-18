@@ -31,17 +31,33 @@ int main()
 
     result = sumEvenDigits(cardNumber) + sumOddDigits(cardNumber);
 
+    if(result % 10 == 0)
+    {
+        cout << cardNumber << " is valid" << endl;
+    }
+    else
+    {
+        cout << cardNumber << " is not valid" << endl; 
+    }
+
     return 0;
 }
 
 int getDigit(const int number)
 {
-    return 0;
+    return number % 10 + (number / 10 % 10);
 }
 
 int sumOddDigits(const string cardNumber)
 {
-    return 0;
+    int sum = 0; // Stores the total sum of processed even-indexed digits
+
+    for(int i = cardNumber.size() - 1; i >= 0; i-=2) // Loop through every second digit from the right (starting at the second-to-last)
+    {
+        sum += cardNumber[i] - '0';
+    }
+
+    return sum;  // Return the total sum of processed digits
 }
 
 int sumEvenDigits(const string cardNumber)
